@@ -91,13 +91,6 @@ const Produtos = () => {
                         </div>
                     ))}
                 </div>
-
-                {/* Botão de cadastrar produto */}
-                {isLoggedIn && (
-                    <div className="cadastrar-produto">
-                        <button className="btn">Cadastrar Produto</button>
-                    </div>
-                )}
             </section>
         </ProdutosStyle>
     );
