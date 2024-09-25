@@ -8,7 +8,7 @@ import Produto5 from '../assets/images/produto5.png';
 import Produto6 from '../assets/images/produto6.png';
 
 // Lista de produtos pré-cadastrados
-const produtos = [
+const produtosIniciais = [
     {
         id: 1,
         nome: "ElecSUV X1",
@@ -54,10 +54,29 @@ const produtos = [
 ];
 
 const Produtos = () => {
-    
-    // State para controlar o login
+    // State para controlar a lista de produtos e o formulário de adicionar produto
+    const [produtos, setProdutos] = useState(produtosIniciais);
     const [searchTerm, setSearchTerm] = useState('');
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [showForm, setShowForm] = useState(false);
+    const [nome, setNome] = useState('');
+    const [descricao, setDescricao] = useState('');
+    const [preco, setPreco] = useState('');
+
+    // Função para adicionar um novo produto
+    const adicionarProduto = () => {
+        const novoProduto = {
+            id: produtos.length + 1, // Gerando um ID simples
+            nome,
+            descricao,
+            preco,
+            imagem: Produto1 // Pode ser uma imagem padrão ou personalizada
+        };
+        setProdutos([...produtos, novoProduto]);
+        setNome('');
+        setDescricao('');
+        setPreco('');
+        setShowForm(false); // Oculta o formulário após adicionar
+    };
 
     // Filtrando produtos com base na busca
     const filteredProducts = produtos.filter(produto =>
@@ -69,7 +88,7 @@ const Produtos = () => {
             <section>
                 <h2 className="produto-title">Produtos</h2>
 
-                {/* Campo de pesquisa */}
+                {/* Barra de pesquisa */}
                 <div className="search-bar">
                     <input
                         type="text"
@@ -79,7 +98,41 @@ const Produtos = () => {
                     />
                 </div>
 
-                {/* Produtos */}
+                {/* Botão para mostrar/ocultar o formulário de adicionar produto */}
+                <div className="vejaMais">
+                    <button className="btn" onClick={() => setShowForm(!showForm)}>
+                        {showForm ? 'Cancelar' : 'Adicionar Produto'}
+                    </button>
+                </div>
+
+                {/* Formulário para adicionar novo produto */}
+                {showForm && (
+                    <div className="produto-form">
+                        <input
+                            type="text"
+                            placeholder="Nome do Produto"
+                            value={nome}
+                            onChange={(e) => setNome(e.target.value)}
+                            required
+                        />
+                        <textarea
+                            placeholder="Descrição"
+                            value={descricao}
+                            onChange={(e) => setDescricao(e.target.value)}
+                            required
+                        />
+                        <input
+                            type="text"
+                            placeholder="Preço"
+                            value={preco}
+                            onChange={(e) => setPreco(e.target.value)}
+                            required
+                        />
+                        <button className="btn" onClick={adicionarProduto}>Salvar Produto</button>
+                    </div>
+                )}
+
+                {/* Lista de produtos */}
                 <div className="produto-list">
                     {filteredProducts.map(produto => (
                         <div key={produto.id} className="produto-item">

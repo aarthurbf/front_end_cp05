@@ -99,6 +99,50 @@ export const ProdutosStyle = styled.section`
             margin-bottom: 1.5rem;
         }
 
+    // Adicionar produto 
+        .produto-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 500px;
+            background-color: var(--color7);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .produto-form input,
+        .produto-form textarea {
+            padding: 12px;
+            border: 2px solid var(--color3);
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .produto-form textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .produto-form button {
+            padding: 12px 20px;
+            background-color: var(--color2);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .produto-form button:hover {
+            background-color: var(--color3);
+        }
+
     // Responsividade
         @media screen and (max-width: 1024px) {
         .produto-list {
@@ -112,6 +156,11 @@ export const ProdutosStyle = styled.section`
 
             .produto-item {
                 width: 25rem;
+            }
+            
+            .produto-form {
+                max-width: 100%;
+                padding: 15px;
             }
         }
 
