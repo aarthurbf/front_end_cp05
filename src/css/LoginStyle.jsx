@@ -60,6 +60,33 @@ export const LoginStyle = styled.section`
   .field button:hover {
     background-color: var(--color3);
   }
+  .welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin: 20px 0; 
+  }
+  .welcome-message {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--color8);
+    text-align: center;
+  }
+  .logout-button {
+    color: #fff;
+    background-color: #e74c3c; 
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 6px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px; 
+  }
+  .logout-button:hover {
+    background-color: #c0392b; 
+  }
   .form-link {
     text-align: center;
     margin-top: 10px;
@@ -140,4 +167,4 @@ export const LoginStyle = styled.section`
       padding: 20px 10px;
     }
   }
-`
+`;
