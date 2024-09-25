@@ -5,6 +5,8 @@ export const NavStyle = styled.nav`
     background: var(--color1);
     height: 80px;
     width: 100%;
+    position: relative; /* Certifique-se que a nav está posicionada */
+    z-index: 1000; /* Aumente o z-index aqui */
   }
 
   label.logo {
@@ -82,6 +84,7 @@ export const NavStyle = styled.nav`
       left: -100%;
       text-align: center;
       transition: all 0.5s;
+      z-index: 2000; /* Aumentar z-index para o menu hamburger */
     }
 
     nav ul li {
