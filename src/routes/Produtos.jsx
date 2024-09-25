@@ -65,11 +65,11 @@ const Produtos = () => {
     // Função para adicionar um novo produto
     const adicionarProduto = () => {
         const novoProduto = {
-            id: produtos.length + 1, // Gerando um ID simples
+            id: produtos.length + 1, 
             nome,
             descricao,
             preco,
-            imagem: Produto1 // Pode ser uma imagem padrão ou personalizada
+            imagem: Produto1 
         };
         setProdutos([...produtos, novoProduto]);
         setNome('');

@@ -248,7 +248,7 @@ export const HomeStyle = styled.section`
             height: 1.8rem;
         }
 
-    /* Responsividade */
+    // Responsividade
         @media (max-width: 1024px) {
             .slideshow-container {
                 height: 80vh;

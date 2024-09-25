@@ -1,5 +1,3 @@
-
-
 const CadastrarProduto = () => {
     return(
         <>
